@@ -63,4 +63,13 @@ public class appController {
 
     }
 
+    @GetMapping("estadisticas")
+    public String estadisticas(Model model) {
+
+        model.addAttribute("estadisticas", technicianRepository.estadisticas());
+
+        return "estadisticas";
+
+    }
+
 }

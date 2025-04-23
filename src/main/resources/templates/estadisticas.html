@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:replace="gticsf.html :: menu"></div>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>Nombre del Sitio</th>
+    <th>Cantidad de Tickets</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="nombreSitioTickets : ${estadisticas}">
+    <td th:text="${nombreSitioTickets.getNombreSitio()}"></td>
+    <td th:text="${nombreSitioTickets.getCuentaTicketID()}"></td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
