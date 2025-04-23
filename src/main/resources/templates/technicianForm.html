@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Formulario Tecnico</title>
+</head>
+<body>
+
+
+<!-- Incluye el menú -->
+<div th:replace="gticsf.html :: menu"></div>
+
+<h1 th:text="${tecnico.id != null} ? 'Editar Tecnico' : 'Crear Tecnico'"></h1>
+
+<form th:action="@{/tecnicos/guardar}" th:object="${tecnico}" method="post">
+
+  <!-- Id del tecnico, si existe -->
+  <input type="hidden" th:if="*{id != null}" th:field="*{id}" />
+
+
+  <!-- Nombre -->
+  <label>Nombre:</label>
+  <input type="text" th:field="*{firstName}" required/><br/>
+
+  <!-- Apellido -->
+  <label>Apellido:</label>
+  <input type="text" th:field="*{lastName}" required/><br/>
+
+  <!-- Email -->
+  <label>Email:</label>
+  <input type="text" th:field="*{dni}" required/><br/>
+
+  <!-- Teléfono -->
+  <label>Teléfono:</label>
+  <input type="text" th:field="*{phone}" required/><br/>
+
+  <!-- Edad  -->
+  <label>Edad:</label>
+  <input type="number" th:field="*{age}" required/><br/>
+
+
+  <!-- Botón -->
+  <button type="submit">Guardar</button>
+
+</form>
+
+</body>
+</html>

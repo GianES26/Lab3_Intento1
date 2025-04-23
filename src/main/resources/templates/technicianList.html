@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:replace="gticsf.html :: menu"></div>
+
+<div th:if="${msg != null}" th:text="${msg}" class="alert alert-success" role="alert"></div>
+
+<a th:href="@{/tecnicos/nuevo}">Crear nuevo empleado</a>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>DNI</th>
+    <th>Numero</th>
+    <th>Edad</th>
+    <th>Acciones</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="tecnico : ${tecnicosLista}">
+    <td th:text="${tecnico.id}"></td>
+    <td th:text="${tecnico.firstName}"></td>
+    <td th:text="${tecnico.lastName}"></td>
+    <td th:text="${tecnico.dni}"></td>
+    <td th:text="${tecnico.phone}"></td>
+    <td th:text="${tecnico.age}"></td>
+    <td>
+      <a th:href="@{/tecnicos/editar(id=${tecnico.id})}">Editar</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
